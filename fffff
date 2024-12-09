@@ -1,0 +1,48 @@
+video = input('Вставьте сюда ваше видео: ')
+
+effect = ['замедление', 'тряска', 'отдаление']
+effect2 = ['ускорение', 'шейк', 'приближение']
+render = input('Отрендерить ваше видео? Да/Нет')
+
+# Словари для хранения времени эффектов
+effect_times = {}
+effect2_times = {}
+
+for i in effect:
+    print('Эффекты первого списка:', i)
+    for x in effect2:
+        print('Эффекты второго списка:', x)
+        question = int(input('С какого списка вы хотите взять эффект? 1/2: '))
+        
+        if question == 1:
+            print('Выберите эффект из первого списка: ')
+            selected_effect = input('Введите эффект (замедление, тряска, отдаление): ')
+            if selected_effect in effect:
+                time = input(f"Укажите время, куда вставить эффект '{selected_effect}': ")
+                effect_times[selected_effect] = time
+            else:
+                print('Некорректный выбор из первого списка.')
+        elif question == 2:
+            print('Выберите эффект из второго списка: ')
+            selected_effect2 = input('Введите эффект (ускорение, шейк, приближение): ')
+            if selected_effect2 in effect2:
+                time = input(f"Укажите время, куда вставить эффект '{selected_effect2}': ")
+                effect2_times[selected_effect2] = time
+            else:
+                print('Некорректный выбор из второго списка.')
+        else:
+            print('Некорректный выбор. Пожалуйста, выберите 1 или 2.')
+
+print("\nВыбранные эффекты и их время:")
+print("Эффекты первого списка:")
+for key, value in effect_times.items():
+    print(f"{key}: {value}")
+
+print("\nЭффекты второго списка:")
+for key, value in effect2_times.items():
+    print(f"{key}: {value}")
+
+if render == "Да":
+   print('Ваше видео отрендерено: ')
+else:
+   print('Ваше видео не отрендерено: ')
